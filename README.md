@@ -3,6 +3,7 @@
 # I Used
 
 * [Map Guide](https://techtrail.net/creating-an-interactive-map-with-leaflet-js/)
+* [Map Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
 * [leaflet.js](https://leafletjs.com/)
 * [Map Tile Cutter](https://github.com/bramus/photoshop-google-maps-tile-cutter/)
 * [PNGYU](https://nukesaq88.github.io/Pngyu/)
