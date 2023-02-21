@@ -1,0 +1,135 @@
+[
+    {
+        "name":"Goblin Territory",
+        "description":"Goblin owned territory filled with Goblins, Hobgoblins and tamed Dire Wolves.",
+        "type":"Territory",
+        "X": 51.852389,
+        "Y": -91.757812
+    },
+    {
+        "name":"Fortress Ruins",
+        "description":"Ruined Fortress claimed by Clay Golems.",
+        "type":"Ruins",
+        "X": 7.358657,
+        "Y": -81.914063
+    },
+    {
+        "name":"Ogre Cave",
+        "description":"Cave in the mountains claimed by Ogres.",
+        "type":"Cave",
+        "X": 56.962393,
+        "Y": -23.554687
+    },
+    {
+        "name":"Gnoll Cave",
+        "description":"Cave claimed by Gnolls and Hyenas.",
+        "type":"Cave",
+        "X": 25.777684,
+        "Y": -62.226563
+    },
+    {
+        "name":"Riisin Mountains",
+        "description":"Mountains home to Giant Eagles at the top and Hill Giants at the base.",
+        "type":"Mountain",
+        "X": 45.32917,
+        "Y": -41.835938
+    },
+    {
+        "name":"Centaur Territory",
+        "description":"Open fields where centaurs roam and hunt.",
+        "type":"Territory",
+        "X": 9.067761,
+        "Y": -8.4375
+    },
+    {
+        "name":"Giant Sharks",
+        "description":"",
+        "type":"Monsters",
+        "X": -56.214117,
+        "Y": -105.117188
+    },
+    {
+        "name":"Giant Crabs",
+        "description":"",
+        "type":"Monsters",
+        "X": -13.286384,
+        "Y": -39.726563
+    },
+    {
+        "name":"Blink Dogs",
+        "description":"",
+        "type":"Monsters",
+        "X": -31.70379,
+        "Y": 17.929688
+    },
+    {
+        "name":"Brown Bears",
+        "description":"",
+        "type":"Monsters",
+        "X": 35.731908,
+        "Y": 57.304688
+    },
+    {
+        "name":"Giant Elk",
+        "description":"",
+        "type":"Monsters",
+        "X": -56.988615,
+        "Y": 78.75
+    },
+    {
+        "name":"Elk",
+        "description":"",
+        "type":"Monsters",
+        "X": -51.005137,
+        "Y": 102.304688
+    },
+    {
+        "name":"Boar",
+        "description":"",
+        "type":"Monsters",
+        "X": -35.224194,
+        "Y": 51.679688
+    },
+    {
+        "name":"Merrow",
+        "description":"Merrow often come to land for sacrifices and valuables.",
+        "type":"Monsters",
+        "X": -32.893105,
+        "Y": -24.609375
+    },
+    {
+        "name":"Sunveil",
+        "description":"Sunveil, home to the sunveil adventurers guild, and one too many merchants.",
+        "type":"City",
+        "X": -19.367798,
+        "Y": 89.296875
+    },
+    {
+        "name":"Cloudmoor",
+        "description":"Town of Cloudmoor. Nothing special.",
+        "type":"Town",
+        "X": -52.089398,
+        "Y": 9.42188
+    },
+    {
+        "name":"Elkpoint",
+        "description":"Simple Farming Town.",
+        "type":"",
+        "X": 5.906033,
+        "Y": 65.039063
+    },
+    {
+        "name":"Dawnfront Fort",
+        "description":"Run down fort. Claimed by Hill Giants now.",
+        "type":"",
+        "X": 52.659958,
+        "Y": 28.15
+    },
+    {
+        "name":"Maeve the Archmage",
+        "description":"Most powerful mage in Riisin. Doesn't go out much.",
+        "type":"Tower",
+        "X": 50.920591,
+        "Y": 107.578125
+    }
+]
