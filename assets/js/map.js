@@ -31,8 +31,10 @@ fetch("map.json",
             let marker = L.marker([row.X, row.Y], 
                 {
                     opacity: 1
-                }).bindPopup(row.name);
+                }).bindPopup(row.name,{keepInView: true, autoPan: false, offset: [0,40]});
             marker.addTo(map);
           }
         })
 document.getElementById("#map").innerHTML = map;
+
+

@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html = style="height: 100%;">
+<html>
   <head>
-    <title>DnD World Map</title>
+    <title>Sunveil Guild</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="leaflet/leaflet.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Give+You+Glory&family=The+Girl+Next+Door&display=swap" rel="stylesheet">
     <script src="leaflet/leaflet.js"></script>
+    <script  defer src="assets/js/questitem.js"></script>
     
   </head>
   
   <body>
-    <iframe src="map.html" class="map-frame">
+    <iframe src="map.html" class="map-frame"></iframe>
 
-    </iframe>
+    <div id="quest-board" class="quest-board">
+      <div class="book-wrapper">
+        <div class="spellbook open-spellbook">
+          <img src="spellbook.svg" class="book-logo">
+        </div>
+        
+        <div class="monsterbook open-monsterbook">
+          <img src="monsterbook.svg" class="book-logo">
+        </div>
+      </div>
+      
+      <dialog class="modal book-cover" id="spellbook-modal">
+        <!-- <p>spell</p> -->
+        <div class="book-page" id="spellbook-page">
+          <img src="spellbook.svg" class="close-spellbook">
+        </div>
+      </dialog>
+
+      <dialog class="modal book-cover" id="monsterbook-modal">
+        <!-- <p>monster</p> -->
+        <div class="book-page" id="monsterbook-page">
+          <img src="monsterbook.svg" class="close-monsterbook">
+        <div>
+      </dialog>
+    </div>
+
+    <script  type="text/javascript" src="assets/js/questboard.js"></script>
+    <script  src="assets/js/books.js"></script>
   </body>
-  <footer><script  type="text/javascript" src="assets/js/map.js"></script></footer>
 </html>

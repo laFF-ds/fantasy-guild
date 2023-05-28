@@ -1,0 +1,42 @@
+[
+    {
+        "name":"Boar Hunting",
+        "description":"Deliver 3 adult boar to sunveils butcher",
+        "reward":"8 silver"
+    },
+    {
+        "name":"Elk Hunting",
+        "description":"Deliver 1 Giant Elk to Elkpoints butcher",
+        "reward":"2 gold"
+    },
+    {
+        "name":"Ruins Escort",
+        "description":"Escort a group of 4 researchers to and from the Fortress Ruins (at least 3 adventurers required)",
+        "reward":"50 Gold"
+    },
+    {
+        "name":"Giant Crabs",
+        "description":"Deliver 6 Giant Crabs (alive) to the Singing Seagull in Cloudmoor",
+        "reward":"4 Gold"
+    },
+    {
+        "name":"Gnoll Rescue",
+        "description":"Rescue any surviving people from the Gnoll cave (3-4 adventurers recommended)",
+        "reward":"25 Gold"
+    },
+    {
+        "name":"Merrow Raid",
+        "description":"2-3 adventurers needed to retrieve a large red orb from the Merrows lair",
+        "reward":"60 Gold"
+    },
+    {
+        "name":"Centaur Meet",
+        "description":"Escort a merchant to and from the centaurs fields",
+        "reward":"10 Gold"
+    },
+    {
+        "name":"Stolen Blink Dog",
+        "description":"Return Blink Dog puppy back to the guild. Both thieves seen wearing red cloaks with long blue hair",
+        "reward":"10 Gold"
+    }   
+]

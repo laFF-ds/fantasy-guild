@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>icons8-book-50</title>
+	<defs>
+		<image  width="33" height="42" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAqCAMAAAAK/cKeAAAAAXNSR0IB2cksfwAAAFdQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADpeTbQAAAB10Uk5TACum6P9S+Cb2nioCnaPjL/wG66oY8q+rGSfuHfFjOFfrAAAAYklEQVR4nO3UuQ6AMAwDUAPhKDeUG/7/OynqXGdGqlc/KZ4CIEkzIQHygvVOlJWYukEoTrTSBWsvehkUMcqkiG9sFFFE8TdhZv5h+APywi70jhMKwKqKTfaDi/PSluK2DxUvrCsGt1ShdEoAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="8" y="4"/>
+</svg>
