@@ -85,11 +85,13 @@ function fetchedMonsters()
           for await (element of data.actions)
           {
             arr.push(element.name+"<br />")
+            arr.push(element.desc+"<br />")
             // console.log(element.name)
           }
           for await (element of data.special_abilities)
           {
             arr.push(element.name+"<br />")
+            arr.push(element.desc+"<br />")
             // console.log(element.name)
           }
           // hand off array of individual monster data before reset
