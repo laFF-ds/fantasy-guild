@@ -6,7 +6,7 @@ monsters = ["brown-bear","boar","blink-dog","clay-golem","hill-giant","centaur",
 // Fill Spellbook
 function fetchedSpells()
 {  
-  spellName = []
+  spellData = []
   for(i=0; i<spells.length; i++)
   {
       fetch(`https://www.dnd5eapi.co/api/spells/${spells[i]}`, 
@@ -21,16 +21,16 @@ function fetchedSpells()
       .then((data) => 
       {
         // console.log(data);
-        // spellName.push(data.material)
+        // spellData.push(data.material)
         // test.sort()
         if(data.material === undefined)
         {
-          spellName.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: None Required")
+          spellData.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: None Required")
           return "No material required"
         }
         else{
-          spellName.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: " + data.material)
-          return spellName
+          spellData.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: " + data.material)
+          return spellData
         }
         
       })
@@ -38,14 +38,14 @@ function fetchedSpells()
   }
   setTimeout(function()
   {
-    spellName.sort()
-    spellName.reverse()
+    spellData.sort()
+    spellData.reverse()
     let items = document.querySelector("#spellbook-page")
     // console.log(test.length + " spells")
     // console.log(test)
-    for(i=0; i<spellName.length; i++)
+    for(i=0; i<spellData.length; i++)
     {
-      items.insertAdjacentHTML("afterbegin", `<p>${spellName[i]}</p>`)
+      items.insertAdjacentHTML("afterbegin", `<p>${spellData[i]}</p>`)
     }
   }, 1000) // 2 seconds timeout
 }
@@ -61,7 +61,7 @@ actions[n][desc]
 */
 function fetchedMonsters()
 {  
-  monsterName = []
+  monsterData = [[]]
   for(i=0; i<monsters.length; i++)
   {
       fetch(`https://www.dnd5eapi.co/api/monsters/${monsters[i]}`, 
@@ -74,41 +74,43 @@ function fetchedMonsters()
       })
       .then((data) => 
       {
-        // numOfActions = data.actions.length
-        // numOfAbilities = data.special_abilities.length
-        async function go()
+        async function collectMonsterData()
         {
+          // array to hold an individual monsters data. array resets each loop
+          arr = []
           // console.log(data.name)
           // console.log(data.size)
-          monsterName.push(data.name)
-          monsterName.push(data.size)
+          arr.push(data.name+"<br />")
+          arr.push(data.size+"<br />")
           for await (element of data.actions)
           {
-            monsterName.push(element.name)
+            arr.push(element.name+"<br />")
             // console.log(element.name)
           }
           for await (element of data.special_abilities)
           {
-            monsterName.push(element.name)
+            arr.push(element.name+"<br />")
             // console.log(element.name)
-          }             
+          }
+          // hand off array of individual monster data before reset
+          monsterData.push(arr)
+          console.log(arr)
         }
-        go()
-        // monsterName.push("<br />hello<br />")
-        // test.sort()
-        // return monsterName
+        collectMonsterData()
+        // return monsterData
       })
   }
   setTimeout(function()
   {
-    // monsterName.sort()
-    monsterName.reverse()
+    // console.log("hello " + monsterData.at(-1))
+    monsterData.sort()
+    monsterData.reverse()
     let items = document.querySelector("#monsterbook-page")
-    for(i=0; i<monsterName.length; i++)
+    for(i=0; i<monsterData.length; i++)
     {
-      items.insertAdjacentHTML("afterbegin", `<p>${monsterName[i]}</p>`)
+      items.insertAdjacentHTML("afterbegin", `<p>${monsterData[i].join("")}</p>`)
     }
-  }, 1000) // 2 seconds timeout
+  }, 1000) // 1 second timeout
 }
 
 promises = [fetchedSpells(), fetchedMonsters()]
