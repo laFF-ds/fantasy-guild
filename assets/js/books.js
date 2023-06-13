@@ -20,16 +20,13 @@ function fetchedSpells()
       })
       .then((data) => 
       {
-        // console.log(data);
-        // spellData.push(data.material)
-        // test.sort()
         if(data.material === undefined)
         {
-          spellData.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: None Required")
-          return "No material required"
+          spellData.push(`<p>${data.name}</p><p>${data.desc}</p><p>Material Components: None</p>`)
+          return spellData
         }
         else{
-          spellData.push(data.name + "<br />" + data.desc + "<br />" + "Material Components: " + data.material)
+          spellData.push(`<p>${data.name}</p><p>${data.desc}</p><p>Material Components: ${data.material}</p>`)
           return spellData
         }
         
@@ -39,29 +36,68 @@ function fetchedSpells()
   setTimeout(function()
   {
     spellData.sort()
-    spellData.reverse()
-    let items = document.querySelector("#spellbook-page")
-    // console.log(test.length + " spells")
-    // console.log(test)
-    for(i=0; i<spellData.length; i++)
-    {
-      items.insertAdjacentHTML("afterbegin", `<p>${spellData[i]}</p>`)
-    }
-  }, 1000) // 2 seconds timeout
+    DisplaySpells(spellData, spellRows, currentSpellPage)
+    SetupSpellPagination(spellData, spellPaginationElement, spellRows)
+  }, 1000)
+}
+
+// SPELL PAGINATION
+let currentSpellPage = 1
+let spellRows = 1
+
+function DisplaySpells(items, rowsPerPage, page)
+{
+  page--
+
+  let itemElement = document.querySelector("#spellbook-page")
+  itemElement.removeChild(itemElement.firstChild)
+  let start = rowsPerPage * page
+  let end = start + rowsPerPage
+  let paginatedItems = items.slice(start, end)
+
+  for(let i = 0; i < paginatedItems.length; i++)
+  {
+    itemElement.insertAdjacentHTML("afterbegin", `<div>${paginatedItems[i]}</div>`)
+  }
+}
+
+// SPELL PAGINATION BUTTONS
+const spellPaginationElement = document.getElementById("spell-page-numbers")
+
+function SetupSpellPagination(items, wrapper, rowsPerPage)
+{
+  let pageCount = Math.ceil(items.length / rowsPerPage)
+  for(i = 1; i < pageCount + 1; i++)
+  {
+    let btn = SpellPaginationButton(i, items)
+    wrapper.appendChild(btn)
+  }
+}
+
+function SpellPaginationButton(page, items)
+{
+  let button = document.createElement("button")
+  button.innerText = page
+
+  if(currentSpellPage == page) button.classList.add("active")
+
+  button.addEventListener("click", function()
+  {
+    currentSpellPage = page
+    DisplaySpells(items, spellRows, currentSpellPage)
+
+    let current_btn = document.querySelector(".page-numbers button.active")
+    current_btn.classList.remove("active")
+    button.classList.add("active")
+  })
+
+  return button
 }
 
 // Fill Monsterbook
-/*
-name
-size
-special_abilities[n][name]
-special_abilities[n][desc]
-actions[n][name]
-actions[n][desc]
-*/
 function fetchedMonsters()
 {  
-  monsterData = [[]]
+  monsterData = []
   for(i=0; i<monsters.length; i++)
   {
       fetch(`https://www.dnd5eapi.co/api/monsters/${monsters[i]}`, 
@@ -78,41 +114,83 @@ function fetchedMonsters()
         {
           // array to hold an individual monsters data. array resets each loop
           arr = []
-          // console.log(data.name)
-          // console.log(data.size)
-          arr.push(data.name+"<br />")
-          arr.push(data.size+"<br />")
+          arr.push(`<p>${data.name}</p>`)
+          arr.push(`<p>${data.size}</p>`)
           for await (element of data.actions)
           {
-            arr.push(element.name+"<br />")
-            arr.push(element.desc+"<br />")
-            // console.log(element.name)
+            arr.push(`<p>${element.name}</p>`)
+            arr.push(`<p>${element.desc}</p>`)
           }
           for await (element of data.special_abilities)
           {
-            arr.push(element.name+"<br />")
-            arr.push(element.desc+"<br />")
-            // console.log(element.name)
+            arr.push(`<p>${element.name}</p>`)
+            arr.push(`<p>${element.desc}</p>`)
           }
-          // hand off array of individual monster data before reset
           monsterData.push(arr)
-          console.log(arr)
         }
         collectMonsterData()
-        // return monsterData
       })
   }
   setTimeout(function()
   {
-    // console.log("hello " + monsterData.at(-1))
     monsterData.sort()
-    monsterData.reverse()
-    let items = document.querySelector("#monsterbook-page")
-    for(i=0; i<monsterData.length; i++)
-    {
-      items.insertAdjacentHTML("afterbegin", `<p>${monsterData[i].join("")}</p>`)
-    }
-  }, 1000) // 1 second timeout
+    DisplayMonsters(monsterData, monsterRows, currentMonsterPage)
+    SetupMonsterPagination(monsterData, monsterPaginationElement, monsterRows)
+  }, 1000)
+}
+
+// MONSTER PAGINATION
+let currentMonsterPage = 1
+let monsterRows = 1
+
+function DisplayMonsters(items, rowsPerPage, page)
+{
+  page--
+  
+  let itemElement = document.querySelector("#monsterbook-page")
+  itemElement.removeChild(itemElement.firstChild)
+  let start = rowsPerPage * page
+  let end = start + rowsPerPage
+  let paginatedItems = items.slice(start, end)
+  console.log(items)
+  
+  for(let i = 0; i < paginatedItems.length; i++)
+  {
+    itemElement.insertAdjacentHTML("afterbegin", `<div>${paginatedItems[i].join("")}</div>`)
+  }
+}
+
+// MONSTER PAGINATION BUTTONS
+const monsterPaginationElement = document.getElementById("monster-page-numbers")
+
+function SetupMonsterPagination(items, wrapper, rowsPerPage)
+{
+  let pageCount = Math.ceil(items.length / rowsPerPage)
+  for(i = 1; i < pageCount + 1; i++)
+  {
+    let btn = MonsterPaginationButton(i, items)
+    wrapper.appendChild(btn)
+  }
+}
+
+function MonsterPaginationButton(page, items)
+{
+  let button = document.createElement("button")
+  button.innerText = page
+
+  if(currentMonsterPage == page) button.classList.add("active")
+
+  button.addEventListener("click", function()
+  {
+    currentMonsterPage = page
+    DisplayMonsters(items, monsterRows, currentMonsterPage)
+
+    let current_btn = document.querySelector(".page-numbers button.active")
+    current_btn.classList.remove("active")
+    button.classList.add("active")
+  })
+
+  return button
 }
 
 promises = [fetchedSpells(), fetchedMonsters()]

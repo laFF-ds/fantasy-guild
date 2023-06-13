@@ -29,7 +29,7 @@ template.innerHTML = `
         }
         
     </style>
-    <div class="quest uwu">
+    <div class="quest">
         <slot id="quest-details"></slot>
     </div>
     

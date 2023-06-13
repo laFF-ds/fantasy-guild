@@ -27,7 +27,7 @@ fetch("quests.json",
             let name = data[i].name
             let description = data[i].description
             let reward = data[i].reward
-            items[i].innerHTML += "<p>" + name + "</p>" + "<p>" + description +"</p>" + "<p>" + reward + "</p>";
+            items[i].insertAdjacentHTML("afterbegin",`<p>${name}</p><p>${description}</p><p>${reward}</p>`);
             console.log(i)
           }
     })

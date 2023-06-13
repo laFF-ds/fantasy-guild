@@ -90,17 +90,44 @@ body,html
 .modal
 {
     min-width: 50ch;
-    max-width: 50ch;
+    max-width: 80ch;
 }
 
 .book-page
 {
+    position: relative;
     background-image: url("../images/stained-paper.jpg");
     background-size: contain;
     border-radius: .313rem;
     text-align: center;
     padding: .629rem;
-    
+    line-height: 2rem;
+    font-weight: bolder;
+}
+
+.book-page p:first-child
+{
+    font-size: 2rem;
+}
+
+.book-page:before 
+{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(177, 150, 106, 0.6);
+    transition: all .3s linear;
+    z-index: 1;
+}
+
+.book-page > :not(.book-cover)
+{
+    position: relative;
+    z-index: 2;
 }
 
 .book-cover
@@ -113,6 +140,32 @@ body,html
     padding: .629rem;
     scrollbar-color: #aeaeae black;
     scrollbar-width: 0px;
+}
+
+.page-numbers
+{
+    display: flex;
+    margin-bottom: .313rem;
+    gap: .313rem;
+}
+
+.page-numbers button
+{
+    flex: 1 1 50px;
+    min-height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: .313rem;
+}
+
+.page-numbers button:hover
+{
+    background-color: rgba(137, 110, 66, 0.6);
+}
+
+.page-numbers button.active
+{
+    background-color: rgba(137, 110, 66, 0.6);
 }
 
 quest-item p:first-child
