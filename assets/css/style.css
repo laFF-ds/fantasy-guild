@@ -42,6 +42,13 @@ body,html
     background-image: url("../images/wood.jpg");
 }
 
+@media (width < 600px) {
+    .quest-board
+    {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
 .book-wrapper
 {
     display: flex;
